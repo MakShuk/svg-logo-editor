@@ -1,0 +1,302 @@
+{
+  "colorAnalysis": {
+    "version": "1.0",
+    "lastUpdated": "2025-07-24",
+    "svgFile": "logo.svg",
+    "totalElements": 33,
+    "totalGradients": 4
+  },
+  "colorGroups": {
+    "primary": {
+      "name": "Основные формы",
+      "priority": "high",
+      "defaultColor": "#DA5038",
+      "elements": [
+        {
+          "id": "path1",
+          "line": "32-35",
+          "description": "Основная форма логотипа"
+        },
+        {
+          "id": "path16",
+          "line": "145-148",
+          "description": "Элемент в нижней части"
+        },
+        {
+          "id": "path20",
+          "line": "161-164",
+          "description": "Средний элемент"
+        },
+        {
+          "id": "path21",
+          "line": "165-168",
+          "description": "Большой элемент в центральной части"
+        }
+      ]
+    },
+    "secondary": {
+      "name": "Структурные элементы",
+      "priority": "high",
+      "defaultColor": "#219BC3",
+      "elements": [
+        {
+          "id": "path17",
+          "line": "149-152",
+          "description": "Горизонтальная полоса"
+        },
+        {
+          "id": "path18",
+          "line": "153-156",
+          "description": "Горизонтальная полоса (средняя)"
+        },
+        {
+          "id": "path19",
+          "line": "157-160",
+          "description": "Горизонтальная полоса (верхняя)"
+        },
+        {
+          "id": "path22",
+          "line": "169-172",
+          "description": "Левый изогнутый элемент"
+        },
+        {
+          "id": "path23",
+          "line": "173-176",
+          "description": "Правый изогнутый элемент"
+        },
+        {
+          "id": "path24",
+          "line": "177-180",
+          "description": "Центральный элемент"
+        },
+        {
+          "id": "path25",
+          "line": "181-184",
+          "description": "Левый нижний элемент"
+        },
+        {
+          "id": "path26",
+          "line": "185-188",
+          "description": "Правый нижний элемент"
+        },
+        {
+          "id": "path27",
+          "line": "189-192",
+          "description": "Правый верхний элемент"
+        },
+        {
+          "id": "path28",
+          "line": "193-196",
+          "description": "Левый верхний элемент"
+        },
+        {
+          "id": "path29",
+          "line": "197-200",
+          "description": "Нижняя горизонтальная полоса"
+        },
+        {
+          "id": "path30",
+          "line": "201-204",
+          "description": "Диагональный элемент"
+        },
+        {
+          "id": "path31",
+          "line": "205-208",
+          "description": "Средняя горизонтальная полоса"
+        },
+        {
+          "id": "path33",
+          "line": "214-217",
+          "description": "Малый элемент"
+        }
+      ]
+    },
+    "accent": {
+      "name": "Акцентные элементы",
+      "priority": "medium",
+      "defaultColor": "#1a7a93",
+      "elements": [
+        {
+          "id": "path3",
+          "line": "59-63",
+          "description": "Сложный контурный элемент"
+        }
+      ]
+    },
+    "neutral": {
+      "name": "Нейтральные элементы",
+      "priority": "medium",
+      "defaultColor": "#f2ead8",
+      "elements": [
+        {
+          "id": "path7",
+          "line": "83-87",
+          "description": "Сложный декоративный элемент"
+        }
+      ]
+    },
+    "special": {
+      "name": "Специальные элементы",
+      "priority": "low",
+      "defaultColor": "#219bc3",
+      "note": "Отличается регистром от основного голубого",
+      "elements": [
+        {
+          "id": "path32",
+          "line": "209-213",
+          "description": "Малый элемент (нижний регистр)"
+        }
+      ]
+    }
+  },
+  "gradients": {
+    "active": {
+      "gradient_0": {
+        "id": "gradient_0",
+        "line": "38-53",
+        "type": "linearGradient",
+        "usedBy": ["path2"],
+        "coordinates": {
+          "x1": "510.41351",
+          "y1": "389.99442",
+          "x2": "510.52496",
+          "y2": "515.21228"
+        },
+        "stops": [
+          {
+            "offset": "0",
+            "color": "#E66A49",
+            "description": "Светло-красный"
+          },
+          {
+            "offset": "1",
+            "color": "#B97467",
+            "description": "Коричнево-красный"
+          }
+        ]
+      }
+    },
+    "unused": {
+      "gradient_1": {
+        "id": "gradient_1",
+        "line": "66-81",
+        "type": "linearGradient",
+        "usedBy": [],
+        "coordinates": {
+          "x1": "575.84204",
+          "y1": "487.616",
+          "x2": "567.20703",
+          "y2": "512.80518"
+        },
+        "stops": [
+          {
+            "offset": "0",
+            "color": "#7A8C8F",
+            "description": "Серо-синий"
+          },
+          {
+            "offset": "1",
+            "color": "#92A9AD",
+            "description": "Светло-серый"
+          }
+        ]
+      },
+      "gradient_2": {
+        "id": "gradient_2",
+        "line": "90-105",
+        "type": "linearGradient",
+        "usedBy": [],
+        "coordinates": {
+          "x1": "575.04193",
+          "y1": "488.89792",
+          "x2": "572.56415",
+          "y2": "501.21786"
+        },
+        "stops": [
+          {
+            "offset": "0",
+            "color": "#00638F",
+            "description": "Темно-синий"
+          },
+          {
+            "offset": "1",
+            "color": "#4999A6",
+            "description": "Сине-зеленый"
+          }
+        ]
+      },
+      "gradient_3": {
+        "id": "gradient_3",
+        "line": "108-124",
+        "type": "linearGradient",
+        "usedBy": [],
+        "coordinates": {
+          "x1": "439.64551",
+          "y1": "506.43829",
+          "x2": "430.72955",
+          "y2": "533.99579"
+        },
+        "stops": [
+          {
+            "offset": "0",
+            "color": "#987572",
+            "description": "Коричнево-серый"
+          },
+          {
+            "offset": "1",
+            "color": "#5B7E8A",
+            "description": "Серо-синий"
+          }
+        ]
+      },
+      "gradient_4": {
+        "id": "gradient_4",
+        "line": "127-143",
+        "type": "linearGradient",
+        "usedBy": [],
+        "coordinates": {
+          "x1": "532.86853",
+          "y1": "486.78076",
+          "x2": "518.07825",
+          "y2": "493.06329"
+        },
+        "stops": [
+          {
+            "offset": "0",
+            "color": "#EA9472",
+            "description": "Персиковый"
+          },
+          {
+            "offset": "1",
+            "color": "#F9BF9B",
+            "description": "Светло-персиковый"
+          }
+        ]
+      }
+    }
+  },
+  "colorPalette": {
+    "primary": "#DA5038",
+    "secondary": "#219BC3",
+    "accent": "#1a7a93",
+    "neutral": "#f2ead8",
+    "gradientColors": [
+      "#E66A49",
+      "#B97467",
+      "#7A8C8F",
+      "#92A9AD",
+      "#00638F",
+      "#4999A6",
+      "#987572",
+      "#5B7E8A",
+      "#EA9472",
+      "#F9BF9B"
+    ]
+  },
+  "technicalNotes": {
+    "caseIssue": "path32 использует нижний регистр #219bc3 вместо #219BC3",
+    "gradientUsage": "Только gradient_0 активно используется в path2",
+    "replacementStrategy": "Использовать регулярные выражения с учетом регистра",
+    "priorityOrder": ["primary", "secondary", "accent", "neutral", "special"]
+  }
+}
