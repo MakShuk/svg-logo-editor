@@ -1,0 +1,232 @@
+/**
+ * Стили для компонента SVGLogo
+ */
+
+.svg-logo {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.svg-logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Адаптивность */
+.svg-logo--responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Размеры */
+.svg-logo--small {
+  width: 128px;
+  height: 192px;
+}
+
+.svg-logo--medium {
+  width: 256px;
+  height: 384px;
+}
+
+.svg-logo--large {
+  width: 512px;
+  height: 768px;
+}
+
+.svg-logo--full {
+  width: 100%;
+  height: auto;
+}
+
+/* Анимации */
+.svg-logo--animated {
+  transition: all 0.3s ease-in-out;
+}
+
+.svg-logo--animated:hover {
+  transform: scale(1.05);
+}
+
+.svg-logo--fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Предварительный просмотр */
+.svg-logo-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.color-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.color-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.color-control label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.color-control input[type="color"] {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+}
+
+.color-control input[type="color"]:hover {
+  border-color: #999;
+}
+
+.color-control input[type="color"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Темная тема */
+.svg-logo-preview--dark {
+  background-color: #2d2d2d;
+  border-color: #555;
+}
+
+.svg-logo-preview--dark .color-control label {
+  color: #f0f0f0;
+}
+
+.svg-logo-preview--dark .color-control input[type="color"] {
+  border-color: #555;
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 768px) {
+  .color-controls {
+    grid-template-columns: 1fr;
+  }
+  
+  .svg-logo--large {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+  
+  .svg-logo-preview {
+    padding: 0.5rem;
+  }
+}
+
+/* Состояния загрузки */
+.svg-logo--loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.svg-logo--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Ошибки */
+.svg-logo--error {
+  border: 2px dashed #e74c3c;
+  background-color: #fdf2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.svg-logo--error::before {
+  content: '⚠️ Ошибка загрузки SVG';
+}
+
+/* Интерактивность */
+.svg-logo--interactive {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.svg-logo--interactive:hover {
+  filter: brightness(1.1);
+}
+
+.svg-logo--interactive:active {
+  transform: scale(0.98);
+}
+
+/* Фокус для доступности */
+.svg-logo:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Высокий контраст */
+@media (prefers-contrast: high) {
+  .svg-logo-preview {
+    border-width: 2px;
+    border-color: #000;
+  }
+  
+  .color-control input[type="color"] {
+    border-width: 2px;
+    border-color: #000;
+  }
+}
+
+/* Уменьшенная анимация */
+@media (prefers-reduced-motion: reduce) {
+  .svg-logo--animated,
+  .svg-logo--fade-in,
+  .svg-logo--interactive {
+    animation: none;
+    transition: none;
+  }
+}
