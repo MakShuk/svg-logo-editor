@@ -1,0 +1,73 @@
+.theme-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+.theme-toggle__icon {
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  transition: transform var(--transition-fast);
+}
+
+.theme-toggle:hover .theme-toggle__icon {
+  transform: scale(1.1);
+}
+
+.theme-toggle__label {
+  font-size: 0.875rem;
+}
+
+/* Адаптивность */
+@media (max-width: 640px) {
+  .theme-toggle__label {
+    display: none;
+  }
+  
+  .theme-toggle {
+    padding: 0.5rem;
+    min-width: 2.5rem;
+    justify-content: center;
+  }
+  
+  .theme-toggle__icon {
+    margin-right: 0;
+  }
+}
+
+/* Анимация переключения */
+.theme-toggle--light {
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+  color: #2d3436;
+}
+
+.theme-toggle--dark {
+  background: linear-gradient(135deg, #2d3436, #636e72);
+  color: #ddd;
+}
+
+.theme-toggle--light:hover {
+  background: linear-gradient(135deg, #fdcb6e, #e17055);
+}
+
+.theme-toggle--dark:hover {
+  background: linear-gradient(135deg, #636e72, #74b9ff);
+}

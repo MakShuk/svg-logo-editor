@@ -1,40 +1,62 @@
 /* Стили для панели импорта */
 .import-panel {
-  background: #ffffff;
-  border: 1px solid #e1e5e9;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .import-panel h3 {
-  margin: 0 0 1.5rem 0;
-  color: #2c3e50;
+  margin: 0;
+  color: var(--text-primary);
   font-size: 1.25rem;
   font-weight: 600;
 }
 
 /* Зона перетаскивания */
 .import-dropzone {
-  border: 2px dashed #bdc3c7;
-  border-radius: 8px;
-  padding: 2rem;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
   text-align: center;
-  background: #f8f9fa;
-  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+  transition: all var(--transition-normal);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.import-dropzone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 05,
+    var(--accent-secondary) 05
+  );
+  opacity: 0;
+  transition: opacity var(--transition-normal);
 }
 
 .import-dropzone:hover {
-  border-color: #3498db;
-  background: #ecf0f1;
+  border-color: var(--accent-primary);
+  background: var(--bg-tertiary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.import-dropzone:hover::before {
+  opacity: 1;
 }
 
 .import-dropzone.importing {
-  border-color: #f39c12;
-  background: #fef9e7;
+  border-color: var(--accent-warning);
+  background: rgba(243, 156, 18, 0.1);
   cursor: not-allowed;
+  animation: pulse 2s infinite;
 }
 
 /* Содержимое зоны импорта */
