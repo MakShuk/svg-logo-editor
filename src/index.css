@@ -83,8 +83,47 @@
   box-sizing: border-box;
 }
 
+/* Предотвращение горизонтальной прокрутки на мобильных устройствах */
+@media (max-width: 768px) {
+  * {
+    max-width: 100%;
+  }
+
+  body,
+  html,
+  #root {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Дополнительные стили для предотвращения переполнения */
+  div,
+  section,
+  main,
+  header,
+  article,
+  aside,
+  nav,
+  footer {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Предотвращение переполнения для сеток и флексбоксов */
+  .app-main,
+  .scheme-buttons,
+  .color-controls,
+  .format-buttons {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+  width: 100%;
 }
 
 body {
@@ -96,11 +135,13 @@ body {
   transition:
     background-color var(--transition-normal),
     color var(--transition-normal);
+  overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
 }
 
 #root {
   min-height: 100vh;
   width: 100%;
+  overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
 }
 
 /* Типография */
@@ -226,6 +267,8 @@ button:disabled {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 @media (min-width: 640px) {

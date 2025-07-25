@@ -65,11 +65,12 @@ function App() {
             <div className="logo-preview-container">
               <SVGLogoPreview
                 colors={currentColors}
-                width={300}
-                height={450}
+                width="100%"
+                height="auto"
                 showControls={true}
                 onColorGroupChange={handleColorGroupChange}
-                className="svg-logo--animated"
+                className="svg-logo--animated svg-logo--responsive"
+                style={{ maxWidth: '300px', maxHeight: '450px' }}
               />
             </div>
           </section>

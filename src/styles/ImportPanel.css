@@ -3,6 +3,10 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .import-panel h3 {
@@ -23,6 +27,9 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .import-dropzone::before {
@@ -167,10 +174,14 @@
 @media (max-width: 768px) {
   .import-panel {
     gap: 1rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .import-dropzone {
     padding: 2rem 1rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .import-icon {
@@ -189,6 +200,33 @@
   .import-format-example {
     font-size: 0.75rem;
     padding: 0.75rem;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .import-dropzone {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .import-icon {
+    font-size: 2rem;
+  }
+
+  .import-text {
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  .import-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .import-format-example {
+    font-size: 0.7rem;
+    padding: 0.5rem;
   }
 }
 

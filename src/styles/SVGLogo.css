@@ -6,18 +6,23 @@
   display: inline-block;
   position: relative;
   overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .svg-logo svg {
   width: 100%;
   height: 100%;
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Адаптивность */
 .svg-logo--responsive {
   max-width: 100%;
   height: auto;
+  width: 100%;
 }
 
 /* Размеры */
@@ -75,6 +80,9 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background-color: #fafafa;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .svg-logo-preview-container {
@@ -85,6 +93,9 @@
   align-items: center;
   justify-content: center;
   min-height: 200px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .color-controls {
@@ -92,7 +103,8 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .color-control {
@@ -205,16 +217,54 @@
 @media (max-width: 768px) {
   .color-controls {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+    max-width: 100%;
   }
 
   .svg-logo--large {
     width: 100%;
-    max-width: 300px;
+    max-width: 100%;
     height: auto;
   }
 
   .svg-logo-preview {
     padding: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .svg-logo-preview-container {
+    padding: 1rem;
+    min-height: 150px;
+  }
+
+  .color-control input[type='color'] {
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .color-controls {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .svg-logo-preview {
+    padding: 0.25rem;
+  }
+
+  .svg-logo-preview-container {
+    padding: 0.5rem;
+    min-height: 120px;
+  }
+
+  .color-control input[type='color'] {
+    height: 32px;
+  }
+
+  .reset-colors-button {
+    height: 36px;
+    font-size: 0.8rem;
   }
 }
 
