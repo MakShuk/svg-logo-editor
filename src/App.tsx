@@ -102,46 +102,6 @@ function App() {
             </div>
           </section>
 
-          <section className="info-section app-section">
-            <h2>Информация о цветах</h2>
-            <div className="color-info">
-              <div className="color-item">
-                <span className="color-label">Основной:</span>
-                <span className="color-value">
-                  {currentColors.primary || '#DA5038'}
-                </span>
-                <div
-                  className="color-preview"
-                  style={{
-                    backgroundColor: currentColors.primary || '#DA5038',
-                  }}
-                />
-              </div>
-              <div className="color-item">
-                <span className="color-label">Вторичный:</span>
-                <span className="color-value">
-                  {currentColors.secondary || '#219BC3'}
-                </span>
-                <div
-                  className="color-preview"
-                  style={{
-                    backgroundColor: currentColors.secondary || '#219BC3',
-                  }}
-                />
-              </div>
-              <div className="color-item">
-                <span className="color-label">Акцентный:</span>
-                <span className="color-value">
-                  {currentColors.accent || '#1a7a93'}
-                </span>
-                <div
-                  className="color-preview"
-                  style={{ backgroundColor: currentColors.accent || '#1a7a93' }}
-                />
-              </div>
-            </div>
-          </section>
-
           <section className="export-section app-section">
             <ExportPanel
               svgContent={getModifiedSvg()}

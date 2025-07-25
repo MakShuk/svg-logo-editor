@@ -133,16 +133,6 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
           {exportMessage}
         </div>
       )}
-
-      {/* Информация о формате */}
-      <div className="format-info">
-        {selectedFormat === 'svg' && (
-          <p>SVG - векторный формат, масштабируется без потери качества</p>
-        )}
-        {selectedFormat === 'json' && (
-          <p>JSON - экспорт цветовой схемы для последующего импорта</p>
-        )}
-      </div>
     </div>
   );
 };

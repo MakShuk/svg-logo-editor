@@ -18,7 +18,7 @@
   border-radius: var(--radius-lg);
   padding: 3rem 2rem;
   text-align: center;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   transition: all var(--transition-normal);
   cursor: pointer;
   position: relative;
@@ -34,27 +34,28 @@
   bottom: 0;
   background: linear-gradient(
     135deg,
-    var(--accent-primary) 05,
-    var(--accent-secondary) 05
+    var(--accent-primary),
+    var(--accent-secondary)
   );
   opacity: 0;
   transition: opacity var(--transition-normal);
+  z-index: 0;
 }
 
 .import-dropzone:hover {
   border-color: var(--accent-primary);
-  background: var(--bg-tertiary);
+  background: var(--bg-secondary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .import-dropzone:hover::before {
-  opacity: 1;
+  opacity: 0.05;
 }
 
 .import-dropzone.importing {
   border-color: var(--accent-warning);
-  background: rgba(243, 156, 18, 0.1);
+  background: var(--bg-secondary);
   cursor: not-allowed;
   animation: pulse 2s infinite;
 }
@@ -65,45 +66,56 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .import-icon {
   font-size: 3rem;
   opacity: 0.6;
+  color: var(--text-secondary);
 }
 
 .import-text {
   margin: 0;
-  color: #7f8c8d;
+  color: var(--text-secondary);
   font-size: 1rem;
 }
 
 .import-button {
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #27ae60, #229954);
-  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    var(--accent-success),
+    var(--accent-primary)
+  );
+  color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
 }
 
 .import-button:hover:not(:disabled) {
-  background: linear-gradient(135deg, #229954, #1e8449);
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
 }
 
 .import-button:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .import-button:disabled {
-  background: #95a5a6;
+  background: var(--text-muted);
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -113,10 +125,10 @@
 .import-error {
   margin-top: 1rem;
   padding: 0.75rem;
-  background: #fdf2f2;
-  color: #e74c3c;
-  border: 1px solid #e74c3c;
-  border-radius: 4px;
+  background: var(--bg-secondary);
+  color: var(--accent-danger);
+  border: 1px solid var(--accent-danger);
+  border-radius: var(--radius-md);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -125,39 +137,40 @@
 .import-info {
   margin-top: 1.5rem;
   padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 6px;
-  border-left: 4px solid #3498db;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--accent-primary);
 }
 
 .import-info h4 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: var(--text-primary);
   font-size: 1rem;
   font-weight: 600;
 }
 
 .import-format-example {
-  background: #2c3e50;
-  color: #ecf0f1;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-size: 0.8rem;
   line-height: 1.4;
   overflow-x: auto;
   margin: 0;
   white-space: pre;
-  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  border: 1px solid var(--border-color);
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
   .import-panel {
-    padding: 1rem;
+    gap: 1rem;
   }
 
   .import-dropzone {
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .import-icon {
@@ -168,55 +181,41 @@
     font-size: 0.9rem;
   }
 
+  .import-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
   .import-format-example {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     padding: 0.75rem;
   }
 }
 
-/* Темная тема */
-@media (prefers-color-scheme: dark) {
-  .import-panel {
-    background: #2c3e50;
-    border-color: #34495e;
-    color: #ecf0f1;
+/* Анимация пульсации для состояния импорта */
+@keyframes pulse {
+  0% {
+    opacity: 1;
   }
-
-  .import-panel h3 {
-    color: #ecf0f1;
+  50% {
+    opacity: 0.7;
   }
+  100% {
+    opacity: 1;
+  }
+}
 
+/* Поддержка уменьшенной анимации */
+@media (prefers-reduced-motion: reduce) {
   .import-dropzone {
-    background: #34495e;
-    border-color: #4a5f7a;
-    color: #bdc3c7;
+    transition: none;
   }
 
-  .import-dropzone:hover {
-    background: #3d566e;
-    border-color: #3498db;
+  .import-button {
+    transition: none;
   }
 
   .import-dropzone.importing {
-    background: rgba(243, 156, 18, 0.2);
-    border-color: #f39c12;
-  }
-
-  .import-text {
-    color: #bdc3c7;
-  }
-
-  .import-error {
-    background: rgba(231, 76, 60, 0.2);
-    border-color: #e74c3c;
-  }
-
-  .import-info {
-    background: #34495e;
-    color: #bdc3c7;
-  }
-
-  .import-info h4 {
-    color: #ecf0f1;
+    animation: none;
   }
 }

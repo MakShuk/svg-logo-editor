@@ -300,27 +300,6 @@
   border: 1px solid rgba(231, 76, 60, 0.3);
 }
 
-/* Информация о формате */
-.format-info {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--accent-primary);
-  transition: all var(--transition-fast);
-}
-
-.format-info:hover {
-  background: var(--bg-tertiary);
-}
-
-.format-info p {
-  margin: 0;
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
 /* Адаптивность */
 @media (max-width: 768px) {
   .format-buttons {
