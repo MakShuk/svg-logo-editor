@@ -26,7 +26,10 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
         </span>
       </button>
 
-      <div className={`mobile-menu-overlay ${isOpen ? 'open' : ''}`} onClick={toggleMenu} />
+      <div
+        className={`mobile-menu-overlay ${isOpen ? 'open' : ''}`}
+        onClick={toggleMenu}
+      />
 
       <nav className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         <div className="mobile-menu-header">
@@ -39,9 +42,7 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
             ✕
           </button>
         </div>
-        <div className="mobile-menu-content">
-          {children}
-        </div>
+        <div className="mobile-menu-content">{children}</div>
       </nav>
     </>
   );

@@ -41,13 +41,13 @@
   .theme-toggle__label {
     display: none;
   }
-  
+
   .theme-toggle {
     padding: 0.5rem;
     min-width: 2.5rem;
     justify-content: center;
   }
-  
+
   .theme-toggle__icon {
     margin-right: 0;
   }

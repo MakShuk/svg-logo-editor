@@ -13,13 +13,13 @@ export const useImport = () => {
    */
   const importColorScheme = useCallback(
     (file: File): Promise<ColorState | null> => {
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
         setIsImporting(true);
         setImportError(null);
 
         const reader = new FileReader();
 
-        reader.onload = (event) => {
+        reader.onload = event => {
           try {
             const content = event.target?.result as string;
             const data = JSON.parse(content) as ColorSchemeExport;
@@ -30,8 +30,18 @@ export const useImport = () => {
             }
 
             // Валидация цветов
-            const requiredColors = ['primary', 'secondary', 'accent', 'neutral', 'special', 'gradientStart', 'gradientEnd'];
-            const missingColors = requiredColors.filter(color => !data.colors[color as keyof ColorState]);
+            const requiredColors = [
+              'primary',
+              'secondary',
+              'accent',
+              'neutral',
+              'special',
+              'gradientStart',
+              'gradientEnd',
+            ];
+            const missingColors = requiredColors.filter(
+              color => !data.colors[color as keyof ColorState]
+            );
 
             if (missingColors.length > 0) {
               console.warn(`Отсутствуют цвета: ${missingColors.join(', ')}`);
@@ -44,13 +54,16 @@ export const useImport = () => {
             );
 
             if (invalidColors.length > 0) {
-              throw new Error(`Недопустимые цвета: ${invalidColors.map(([key]) => key).join(', ')}`);
+              throw new Error(
+                `Недопустимые цвета: ${invalidColors.map(([key]) => key).join(', ')}`
+              );
             }
 
             setIsImporting(false);
             resolve(data.colors);
           } catch (error) {
-            const errorMessage = error instanceof Error ? error.message : 'Ошибка чтения файла';
+            const errorMessage =
+              error instanceof Error ? error.message : 'Ошибка чтения файла';
             setImportError(errorMessage);
             setIsImporting(false);
             resolve(null);

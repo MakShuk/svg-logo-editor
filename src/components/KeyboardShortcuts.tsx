@@ -7,13 +7,20 @@ interface KeyboardShortcutsProps {
   onImport: () => void;
 }
 
-export const KeyboardShortcuts = ({ onThemeToggle, onExport, onImport }: KeyboardShortcutsProps) => {
+export const KeyboardShortcuts = ({
+  onThemeToggle,
+  onExport,
+  onImport,
+}: KeyboardShortcutsProps) => {
   const [showHelp, setShowHelp] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       // Проверяем, что фокус не на input элементе
-      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+      if (
+        event.target instanceof HTMLInputElement ||
+        event.target instanceof HTMLTextAreaElement
+      ) {
         return;
       }
 
@@ -95,12 +102,16 @@ export const KeyboardShortcuts = ({ onThemeToggle, onExport, onImport }: Keyboar
           {shortcuts.map((shortcut, index) => (
             <div key={index} className="shortcut-item">
               <kbd className="shortcut-key">{shortcut.key}</kbd>
-              <span className="shortcut-description">{shortcut.description}</span>
+              <span className="shortcut-description">
+                {shortcut.description}
+              </span>
             </div>
           ))}
         </div>
         <div className="shortcuts-footer">
-          <p>Нажмите <kbd>Esc</kbd> или кликните вне окна, чтобы закрыть</p>
+          <p>
+            Нажмите <kbd>Esc</kbd> или кликните вне окна, чтобы закрыть
+          </p>
         </div>
       </div>
     </>

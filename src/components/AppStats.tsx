@@ -19,7 +19,9 @@ export const AppStats = ({ currentColors }: AppStatsProps) => {
       const parsed = JSON.parse(savedStats);
       setStats({
         ...parsed,
-        lastModified: parsed.lastModified ? new Date(parsed.lastModified) : null,
+        lastModified: parsed.lastModified
+          ? new Date(parsed.lastModified)
+          : null,
       });
     } else {
       // Первый запуск - инициализируем статистику
@@ -71,7 +73,7 @@ export const AppStats = ({ currentColors }: AppStatsProps) => {
             <div className="stat-label">Изменений цветов</div>
           </div>
         </div>
-        
+
         <div className="stat-item">
           <div className="stat-icon">📊</div>
           <div className="stat-content">
@@ -79,7 +81,7 @@ export const AppStats = ({ currentColors }: AppStatsProps) => {
             <div className="stat-label">Сессий</div>
           </div>
         </div>
-        
+
         <div className="stat-item">
           <div className="stat-icon">🕒</div>
           <div className="stat-content">
@@ -87,11 +89,13 @@ export const AppStats = ({ currentColors }: AppStatsProps) => {
             <div className="stat-label">Последнее изменение</div>
           </div>
         </div>
-        
+
         <div className="stat-item">
           <div className="stat-icon">🎯</div>
           <div className="stat-content">
-            <div className="stat-value">{Object.keys(currentColors).length}</div>
+            <div className="stat-value">
+              {Object.keys(currentColors).length}
+            </div>
             <div className="stat-label">Активных цветов</div>
           </div>
         </div>
