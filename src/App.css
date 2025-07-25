@@ -160,12 +160,14 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  grid-column: 1 / -1; /* Занимает всю ширину */
 }
 
 .scheme-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  max-width: none; /* Убираем ограничение ширины */
 }
 
 .scheme-button {
