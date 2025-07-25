@@ -21,12 +21,12 @@ const Toast = ({ toast, onRemove }: ToastProps) => {
   useEffect(() => {
     // Показываем тост с небольшой задержкой для анимации
     const showTimer = setTimeout(() => setIsVisible(true), 100);
-    
+
     // Автоматически скрываем тост
     const hideTimer = setTimeout(() => {
       setIsRemoving(true);
       setTimeout(() => onRemove(toast.id), 300);
-    }, toast.duration || 5000);
+    }, toast.duration || 1500);
 
     return () => {
       clearTimeout(showTimer);
@@ -41,16 +41,21 @@ const Toast = ({ toast, onRemove }: ToastProps) => {
 
   const getIcon = () => {
     switch (toast.type) {
-      case 'success': return '✅';
-      case 'error': return '❌';
-      case 'warning': return '⚠️';
-      case 'info': return 'ℹ️';
-      default: return 'ℹ️';
+      case 'success':
+        return '✅';
+      case 'error':
+        return '❌';
+      case 'warning':
+        return '⚠️';
+      case 'info':
+        return 'ℹ️';
+      default:
+        return 'ℹ️';
     }
   };
 
   return (
-    <div 
+    <div
       className={`toast toast--${toast.type} ${isVisible ? 'toast--visible' : ''} ${isRemoving ? 'toast--removing' : ''}`}
     >
       <div className="toast__icon">{getIcon()}</div>
@@ -58,7 +63,11 @@ const Toast = ({ toast, onRemove }: ToastProps) => {
         <div className="toast__title">{toast.title}</div>
         {toast.message && <div className="toast__message">{toast.message}</div>}
       </div>
-      <button className="toast__close" onClick={handleClose} aria-label="Закрыть">
+      <button
+        className="toast__close"
+        onClick={handleClose}
+        aria-label="Закрыть"
+      >
         ✕
       </button>
     </div>
