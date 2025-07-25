@@ -97,6 +97,7 @@ export interface ColorState {
   special: HexColor;
   gradientStart: HexColor;
   gradientEnd: HexColor;
+  backgroundColor: HexColor;
 }
 
 // Пропсы для SVGLogo компонента

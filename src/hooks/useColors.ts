@@ -146,6 +146,7 @@ export const COLOR_SCHEMES = {
     special: '#3498DB',
     gradientStart: '#34495E',
     gradientEnd: '#2C3E50',
+    backgroundColor: '#f8f9fa',
   },
 
   warm: {
@@ -156,6 +157,7 @@ export const COLOR_SCHEMES = {
     special: '#F39C12',
     gradientStart: '#EC7063',
     gradientEnd: '#E74C3C',
+    backgroundColor: '#fff5f5',
   },
 
   cool: {
@@ -166,6 +168,7 @@ export const COLOR_SCHEMES = {
     special: '#9B59B6',
     gradientStart: '#5DADE2',
     gradientEnd: '#3498DB',
+    backgroundColor: '#f0f8ff',
   },
 
   nature: {
@@ -176,6 +179,7 @@ export const COLOR_SCHEMES = {
     special: '#16A085',
     gradientStart: '#58D68D',
     gradientEnd: '#27AE60',
+    backgroundColor: '#f0fff4',
   },
 
   sunset: {
@@ -186,6 +190,7 @@ export const COLOR_SCHEMES = {
     special: '#FFE66D',
     gradientStart: '#FF8A80',
     gradientEnd: '#FF6B6B',
+    backgroundColor: '#fff8f0',
   },
 
   monochrome: {
@@ -196,6 +201,7 @@ export const COLOR_SCHEMES = {
     special: '#7F8C8D',
     gradientStart: '#5D6D7E',
     gradientEnd: '#2C3E50',
+    backgroundColor: '#ffffff',
   },
 } as const;
 

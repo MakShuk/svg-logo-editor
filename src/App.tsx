@@ -20,7 +20,7 @@ function App() {
   const [currentColors, setCurrentColors] = useState<Partial<ColorState>>({});
   const { currentScheme, applyScheme, getSchemeNames } = useColorSchemes();
 
-  const { toasts, removeToast, showSuccess, showError, showInfo } = useToast();
+  const { toasts, removeToast, showSuccess, showInfo } = useToast();
 
   // Используем хук для получения модифицированного SVG
   const { getModifiedSvg } = useColors(currentColors, SVG_LOGO_CONTENT);

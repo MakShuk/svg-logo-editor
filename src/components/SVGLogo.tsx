@@ -121,7 +121,12 @@ export const SVGLogoPreview: React.FC<SVGLogoPreviewProps> = ({
 
   return (
     <div className="svg-logo-preview">
-      <SVGLogo {...logoProps} colors={currentColors} />
+      <div
+        className="svg-logo-preview-container"
+        style={{ backgroundColor: currentColors.backgroundColor }}
+      >
+        <SVGLogo {...logoProps} colors={currentColors} />
+      </div>
 
       {showControls && (
         <div className="color-controls" style={{ marginTop: '1rem' }}>
@@ -182,6 +187,18 @@ export const SVGLogoPreview: React.FC<SVGLogoPreviewProps> = ({
               type="color"
               value={currentColors.gradientEnd}
               onChange={e => handleColorChange('gradientEnd', e.target.value)}
+            />
+          </div>
+
+          <div className="color-control">
+            <label htmlFor="background-color">Цвет фона:</label>
+            <input
+              id="background-color"
+              type="color"
+              value={currentColors.backgroundColor}
+              onChange={e =>
+                handleColorChange('backgroundColor', e.target.value)
+              }
             />
           </div>
 
