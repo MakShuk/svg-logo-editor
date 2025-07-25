@@ -201,6 +201,7 @@ npm run build:gh-pages
 
 ## Документация
 
+- [🚀 Быстрый деплой на GitHub Pages](DEPLOYMENT.md)
 - [Подробное руководство по экспорту и импорту](docs/export-import-guide.md)
 - [Руководство по деплою на GitHub Pages](docs/github-pages-deployment.md)
 - [Анализ цветов SVG](svg-color-analysis.md)
