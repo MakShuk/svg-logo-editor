@@ -203,6 +203,84 @@ export const COLOR_SCHEMES = {
     gradientEnd: '#2C3E50',
     backgroundColor: '#ffffff',
   },
+
+  // Градиентные темы
+  oceanGradient: {
+    primary: '#667eea',
+    secondary: '#764ba2',
+    accent: '#5a67d8',
+    neutral: '#f7fafc',
+    special: '#764ba2',
+    gradientStart: '#667eea',
+    gradientEnd: '#764ba2',
+    backgroundColor: '#f0f4f8',
+  },
+
+  sunsetGradient: {
+    primary: '#ff7e5f',
+    secondary: '#feb47b',
+    accent: '#ff6b35',
+    neutral: '#fff8f3',
+    special: '#feb47b',
+    gradientStart: '#ff7e5f',
+    gradientEnd: '#feb47b',
+    backgroundColor: '#fff5f0',
+  },
+
+  forestGradient: {
+    primary: '#11998e',
+    secondary: '#38ef7d',
+    accent: '#0d7377',
+    neutral: '#f0fff4',
+    special: '#38ef7d',
+    gradientStart: '#11998e',
+    gradientEnd: '#38ef7d',
+    backgroundColor: '#f0fdf4',
+  },
+
+  purpleGradient: {
+    primary: '#8360c3',
+    secondary: '#2ebf91',
+    accent: '#6a4c93',
+    neutral: '#faf5ff',
+    special: '#2ebf91',
+    gradientStart: '#8360c3',
+    gradientEnd: '#2ebf91',
+    backgroundColor: '#f7f3ff',
+  },
+
+  fireGradient: {
+    primary: '#ff416c',
+    secondary: '#ff4b2b',
+    accent: '#e73c7e',
+    neutral: '#fff5f5',
+    special: '#ff4b2b',
+    gradientStart: '#ff416c',
+    gradientEnd: '#ff4b2b',
+    backgroundColor: '#fff1f1',
+  },
+
+  skyGradient: {
+    primary: '#74b9ff',
+    secondary: '#0984e3',
+    accent: '#6c5ce7',
+    neutral: '#f8fbff',
+    special: '#0984e3',
+    gradientStart: '#74b9ff',
+    gradientEnd: '#0984e3',
+    backgroundColor: '#f1f8ff',
+  },
+
+  goldGradient: {
+    primary: '#f7971e',
+    secondary: '#ffd200',
+    accent: '#ff6348',
+    neutral: '#fffbf0',
+    special: '#ffd200',
+    gradientStart: '#f7971e',
+    gradientEnd: '#ffd200',
+    backgroundColor: '#fffcf0',
+  },
 } as const;
 
 /**

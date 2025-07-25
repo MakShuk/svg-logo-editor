@@ -96,7 +96,21 @@ function App() {
                               ? 'Закат'
                               : schemeName === 'monochrome'
                                 ? 'Монохром'
-                                : schemeName}
+                                : schemeName === 'oceanGradient'
+                                  ? 'Океанский градиент'
+                                  : schemeName === 'sunsetGradient'
+                                    ? 'Закатный градиент'
+                                    : schemeName === 'forestGradient'
+                                      ? 'Лесной градиент'
+                                      : schemeName === 'purpleGradient'
+                                        ? 'Фиолетовый градиент'
+                                        : schemeName === 'fireGradient'
+                                          ? 'Огненный градиент'
+                                          : schemeName === 'skyGradient'
+                                            ? 'Небесный градиент'
+                                            : schemeName === 'goldGradient'
+                                              ? 'Золотой градиент'
+                                              : schemeName}
                 </button>
               ))}
             </div>
