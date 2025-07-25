@@ -1,6 +1,10 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import type { ColorState, UseColorsReturn, HexColor } from '../types/colors';
-import { DEFAULT_COLORS, replaceAllColors, isValidHexColor } from '../utils/colorUtils';
+import {
+  DEFAULT_COLORS,
+  replaceAllColors,
+  isValidHexColor,
+} from '../utils/colorUtils';
 
 /**
  * Хук для управления цветами SVG логотипа
@@ -12,8 +16,45 @@ export const useColors = (
   // Состояние цветов с дефолтными значениями
   const [colors, setColors] = useState<ColorState>(() => ({
     ...DEFAULT_COLORS,
-    ...initialColors
+    ...initialColors,
   }));
+
+  // Ref для отслеживания внутренних изменений
+  const isInternalUpdate = useRef(false);
+
+  // Ref для хранения предыдущих initialColors
+  const prevInitialColors = useRef<Partial<ColorState>>(initialColors);
+
+  // Синхронизация с внешними изменениями initialColors
+  useEffect(() => {
+    if (
+      !isInternalUpdate.current &&
+      initialColors &&
+      Object.keys(initialColors).length > 0
+    ) {
+      // Проверяем, действительно ли initialColors изменились
+      const initialColorsChanged =
+        JSON.stringify(prevInitialColors.current) !==
+        JSON.stringify(initialColors);
+
+      if (initialColorsChanged) {
+        // Проверяем, действительно ли цвета изменились
+        const hasChanges = Object.entries(initialColors).some(
+          ([key, value]) => colors[key as keyof ColorState] !== value
+        );
+
+        if (hasChanges) {
+          setColors(prevColors => ({
+            ...prevColors,
+            ...initialColors,
+          }));
+        }
+
+        prevInitialColors.current = initialColors;
+      }
+    }
+    isInternalUpdate.current = false;
+  }, [initialColors, colors]);
 
   /**
    * Установка цвета для конкретной группы
@@ -24,9 +65,10 @@ export const useColors = (
       return;
     }
 
+    isInternalUpdate.current = true;
     setColors(prevColors => ({
       ...prevColors,
-      [group]: color
+      [group]: color,
     }));
   }, []);
 
@@ -34,6 +76,7 @@ export const useColors = (
    * Сброс цветов к дефолтным значениям
    */
   const resetColors = useCallback(() => {
+    isInternalUpdate.current = true;
     setColors(DEFAULT_COLORS);
   }, []);
 
@@ -43,7 +86,7 @@ export const useColors = (
   const applyColorScheme = useCallback((scheme: Partial<ColorState>) => {
     // Валидация всех цветов в схеме
     const validatedScheme: Partial<ColorState> = {};
-    
+
     Object.entries(scheme).forEach(([key, value]) => {
       if (value && isValidHexColor(value)) {
         validatedScheme[key as keyof ColorState] = value;
@@ -52,9 +95,10 @@ export const useColors = (
       }
     });
 
+    isInternalUpdate.current = true;
     setColors(prevColors => ({
       ...prevColors,
-      ...validatedScheme
+      ...validatedScheme,
     }));
   }, []);
 
@@ -69,7 +113,7 @@ export const useColors = (
 
     const result = replaceAllColors(svgContent, colors, {
       caseSensitive: false,
-      preserveGradients: true
+      preserveGradients: true,
     });
 
     if (result.errors.length > 0) {
@@ -79,16 +123,13 @@ export const useColors = (
     return result.modifiedSvg;
   }, [svgContent, colors]);
 
-  // Мемоизированный результат
-  const memoizedReturn = useMemo<UseColorsReturn>(() => ({
+  return {
     colors,
     setColor,
     resetColors,
     applyColorScheme,
-    getModifiedSvg
-  }), [colors, setColor, resetColors, applyColorScheme, getModifiedSvg]);
-
-  return memoizedReturn;
+    getModifiedSvg,
+  };
 };
 
 /**
@@ -96,7 +137,7 @@ export const useColors = (
  */
 export const COLOR_SCHEMES = {
   default: DEFAULT_COLORS,
-  
+
   corporate: {
     primary: '#2C3E50',
     secondary: '#3498DB',
@@ -104,9 +145,9 @@ export const COLOR_SCHEMES = {
     neutral: '#ECF0F1',
     special: '#3498DB',
     gradientStart: '#34495E',
-    gradientEnd: '#2C3E50'
+    gradientEnd: '#2C3E50',
   },
-  
+
   warm: {
     primary: '#E74C3C',
     secondary: '#F39C12',
@@ -114,9 +155,9 @@ export const COLOR_SCHEMES = {
     neutral: '#FDF2E9',
     special: '#F39C12',
     gradientStart: '#EC7063',
-    gradientEnd: '#E74C3C'
+    gradientEnd: '#E74C3C',
   },
-  
+
   cool: {
     primary: '#3498DB',
     secondary: '#9B59B6',
@@ -124,9 +165,9 @@ export const COLOR_SCHEMES = {
     neutral: '#EBF5FB',
     special: '#9B59B6',
     gradientStart: '#5DADE2',
-    gradientEnd: '#3498DB'
+    gradientEnd: '#3498DB',
   },
-  
+
   nature: {
     primary: '#27AE60',
     secondary: '#16A085',
@@ -134,9 +175,9 @@ export const COLOR_SCHEMES = {
     neutral: '#E8F8F5',
     special: '#16A085',
     gradientStart: '#58D68D',
-    gradientEnd: '#27AE60'
+    gradientEnd: '#27AE60',
   },
-  
+
   sunset: {
     primary: '#FF6B6B',
     secondary: '#FFE66D',
@@ -144,9 +185,9 @@ export const COLOR_SCHEMES = {
     neutral: '#FFF3E0',
     special: '#FFE66D',
     gradientStart: '#FF8A80',
-    gradientEnd: '#FF6B6B'
+    gradientEnd: '#FF6B6B',
   },
-  
+
   monochrome: {
     primary: '#2C3E50',
     secondary: '#7F8C8D',
@@ -154,15 +195,16 @@ export const COLOR_SCHEMES = {
     neutral: '#F8F9FA',
     special: '#7F8C8D',
     gradientStart: '#5D6D7E',
-    gradientEnd: '#2C3E50'
-  }
+    gradientEnd: '#2C3E50',
+  },
 } as const;
 
 /**
  * Хук для работы с предустановленными схемами
  */
 export const useColorSchemes = () => {
-  const [currentScheme, setCurrentScheme] = useState<keyof typeof COLOR_SCHEMES>('default');
+  const [currentScheme, setCurrentScheme] =
+    useState<keyof typeof COLOR_SCHEMES>('default');
 
   const applyScheme = useCallback((schemeName: keyof typeof COLOR_SCHEMES) => {
     setCurrentScheme(schemeName);
@@ -182,6 +224,6 @@ export const useColorSchemes = () => {
     applyScheme,
     getSchemeNames,
     getCurrentScheme,
-    schemes: COLOR_SCHEMES
+    schemes: COLOR_SCHEMES,
   };
 };

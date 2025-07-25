@@ -13,6 +13,13 @@ function App() {
     setCurrentColors(colors);
   };
 
+  const handleColorGroupChange = (group: string, color: string) => {
+    setCurrentColors(prev => ({
+      ...prev,
+      [group]: color,
+    }));
+  };
+
   const handleSchemeChange = (schemeName: keyof typeof COLOR_SCHEMES) => {
     const scheme = applyScheme(schemeName);
     setCurrentColors(scheme);
@@ -33,7 +40,7 @@ function App() {
             width={300}
             height={450}
             showControls={true}
-            onColorChange={handleColorChange}
+            onColorGroupChange={handleColorGroupChange}
             className="svg-logo--animated"
           />
         </div>
