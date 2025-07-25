@@ -97,7 +97,7 @@
   color: #333;
 }
 
-.color-control input[type="color"] {
+.color-control input[type='color'] {
   width: 100%;
   height: 40px;
   border: 1px solid #ccc;
@@ -106,14 +106,54 @@
   background: none;
 }
 
-.color-control input[type="color"]:hover {
+.color-control input[type='color']:hover {
   border-color: #999;
 }
 
-.color-control input[type="color"]:focus {
+.color-control input[type='color']:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Кнопка сброса цветов */
+.color-control--reset {
+  justify-content: flex-end;
+}
+
+.reset-colors-button {
+  width: 100%;
+  height: 40px;
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  color: #495057;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reset-colors-button:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+  color: #212529;
+}
+
+.reset-colors-button:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.reset-colors-button:active {
+  background-color: #dee2e6;
+  border-color: #6c757d;
+  transform: translateY(1px);
 }
 
 /* Темная тема */
@@ -126,8 +166,25 @@
   color: #f0f0f0;
 }
 
-.svg-logo-preview--dark .color-control input[type="color"] {
+.svg-logo-preview--dark .color-control input[type='color'] {
   border-color: #555;
+}
+
+.svg-logo-preview--dark .reset-colors-button {
+  background-color: #3d3d3d;
+  border-color: #555;
+  color: #f0f0f0;
+}
+
+.svg-logo-preview--dark .reset-colors-button:hover {
+  background-color: #4a4a4a;
+  border-color: #666;
+  color: #ffffff;
+}
+
+.svg-logo-preview--dark .reset-colors-button:active {
+  background-color: #2a2a2a;
+  border-color: #444;
 }
 
 /* Мобильная адаптивность */
@@ -135,13 +192,13 @@
   .color-controls {
     grid-template-columns: 1fr;
   }
-  
+
   .svg-logo--large {
     width: 100%;
     max-width: 300px;
     height: auto;
   }
-  
+
   .svg-logo-preview {
     padding: 0.5rem;
   }
@@ -168,8 +225,12 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Ошибки */
@@ -214,8 +275,8 @@
     border-width: 2px;
     border-color: #000;
   }
-  
-  .color-control input[type="color"] {
+
+  .color-control input[type='color'] {
     border-width: 2px;
     border-color: #000;
   }

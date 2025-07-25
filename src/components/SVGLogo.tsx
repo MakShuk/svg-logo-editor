@@ -93,10 +93,11 @@ export const SVGLogoPreview: React.FC<SVGLogoPreviewProps> = ({
   onColorGroupChange,
   ...logoProps
 }) => {
-  const { colors: currentColors, setColor } = useColors(
-    logoProps.colors,
-    SVG_LOGO_CONTENT
-  );
+  const {
+    colors: currentColors,
+    setColor,
+    resetColors,
+  } = useColors(logoProps.colors, SVG_LOGO_CONTENT);
 
   const handleColorChange = useCallback(
     (group: keyof typeof currentColors, color: string) => {
@@ -107,6 +108,16 @@ export const SVGLogoPreview: React.FC<SVGLogoPreviewProps> = ({
     },
     [setColor, onColorGroupChange]
   );
+
+  const handleResetColors = useCallback(() => {
+    resetColors();
+    // Уведомляем родительский компонент о сбросе всех цветов
+    if (onColorGroupChange) {
+      Object.entries(currentColors).forEach(([group, color]) => {
+        onColorGroupChange(group, color);
+      });
+    }
+  }, [resetColors, onColorGroupChange, currentColors]);
 
   return (
     <div className="svg-logo-preview">
@@ -172,6 +183,17 @@ export const SVGLogoPreview: React.FC<SVGLogoPreviewProps> = ({
               value={currentColors.gradientEnd}
               onChange={e => handleColorChange('gradientEnd', e.target.value)}
             />
+          </div>
+
+          <div className="color-control color-control--reset">
+            <button
+              type="button"
+              className="reset-colors-button"
+              onClick={handleResetColors}
+              title="Сбросить все цвета к значениям по умолчанию"
+            >
+              Сбросить цвета
+            </button>
           </div>
         </div>
       )}
