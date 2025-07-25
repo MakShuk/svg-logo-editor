@@ -124,18 +124,6 @@
   gap: 0.5rem;
 }
 
-.app-section h2::before {
-  content: '';
-  width: 4px;
-  height: 1.5rem;
-  background: linear-gradient(
-    135deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
-  border-radius: 2px;
-}
-
 /* Секция логотипа */
 .logo-section {
   display: flex;
@@ -145,6 +133,13 @@
   grid-column: 1 / -1;
   width: 100%;
   overflow: hidden; /* Предотвращаем переполнение */
+}
+
+/* На больших экранах секция логотипа занимает левую колонку */
+@media (min-width: 1024px) {
+  .logo-section {
+    grid-column: 1;
+  }
 }
 
 .logo-preview-container {
@@ -175,6 +170,13 @@
   grid-column: 1 / -1; /* Занимает всю ширину */
   width: 100%;
   overflow: hidden;
+}
+
+/* На больших экранах секция схем занимает правую колонку */
+@media (min-width: 1024px) {
+  .schemes-section {
+    grid-column: 2;
+  }
 }
 
 .scheme-buttons {
