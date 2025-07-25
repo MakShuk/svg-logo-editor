@@ -114,7 +114,7 @@ const { theme, toggleTheme, isDark } = useTheme();
 
 ### Показ уведомлений
 ```tsx
-import { useToast } from './components/Toast';
+import { useToast } from './hooks/useToast';
 
 const { showSuccess, showError, showInfo } = useToast();
 showSuccess('Успех!', 'Операция выполнена');

@@ -4,7 +4,8 @@ import { ExportPanel } from './components/ExportPanel';
 import { ImportPanel } from './components/ImportPanel';
 import { ThemeToggle } from './components/ThemeToggle';
 
-import { ToastContainer, useToast } from './components/Toast';
+import { ToastContainer } from './components/Toast';
+import { useToast } from './hooks/useToast';
 
 import { COLOR_SCHEMES, useColorSchemes } from './hooks/useColors';
 import { useColors } from './hooks/useColors';
