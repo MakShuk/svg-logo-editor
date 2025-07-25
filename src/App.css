@@ -139,6 +139,18 @@
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
+/* Секция экспорта */
+.export-section {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+}
+
+/* Секция импорта */
+.import-section {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
   .app {

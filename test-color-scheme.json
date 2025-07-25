@@ -1,0 +1,14 @@
+{
+  "name": "Тестовая цветовая схема",
+  "colors": {
+    "primary": "#E74C3C",
+    "secondary": "#3498DB",
+    "accent": "#F39C12",
+    "neutral": "#ECF0F1",
+    "special": "#9B59B6",
+    "gradientStart": "#E74C3C",
+    "gradientEnd": "#F39C12"
+  },
+  "timestamp": "2025-01-24T10:26:00.000Z",
+  "version": "1.0.0"
+}

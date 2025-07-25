@@ -1,0 +1,200 @@
+/* Стили для панели импорта */
+.import-panel {
+  background: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.import-panel h3 {
+  margin: 0 0 1.5rem 0;
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Зона перетаскивания */
+.import-dropzone {
+  border: 2px dashed #bdc3c7;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.import-dropzone:hover {
+  border-color: #3498db;
+  background: #ecf0f1;
+}
+
+.import-dropzone.importing {
+  border-color: #f39c12;
+  background: #fef9e7;
+  cursor: not-allowed;
+}
+
+/* Содержимое зоны импорта */
+.import-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.import-icon {
+  font-size: 3rem;
+  opacity: 0.6;
+}
+
+.import-text {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 1rem;
+}
+
+.import-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #27ae60, #229954);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.import-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #229954, #1e8449);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.import-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.import-button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Сообщение об ошибке */
+.import-error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #fdf2f2;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Информация о формате */
+.import-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+}
+
+.import-info h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.import-format-example {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .import-panel {
+    padding: 1rem;
+  }
+
+  .import-dropzone {
+    padding: 1.5rem 1rem;
+  }
+
+  .import-icon {
+    font-size: 2.5rem;
+  }
+
+  .import-text {
+    font-size: 0.9rem;
+  }
+
+  .import-format-example {
+    font-size: 0.7rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  .import-panel {
+    background: #2c3e50;
+    border-color: #34495e;
+    color: #ecf0f1;
+  }
+
+  .import-panel h3 {
+    color: #ecf0f1;
+  }
+
+  .import-dropzone {
+    background: #34495e;
+    border-color: #4a5f7a;
+    color: #bdc3c7;
+  }
+
+  .import-dropzone:hover {
+    background: #3d566e;
+    border-color: #3498db;
+  }
+
+  .import-dropzone.importing {
+    background: rgba(243, 156, 18, 0.2);
+    border-color: #f39c12;
+  }
+
+  .import-text {
+    color: #bdc3c7;
+  }
+
+  .import-error {
+    background: rgba(231, 76, 60, 0.2);
+    border-color: #e74c3c;
+  }
+
+  .import-info {
+    background: #34495e;
+    color: #bdc3c7;
+  }
+
+  .import-info h4 {
+    color: #ecf0f1;
+  }
+}

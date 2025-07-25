@@ -131,3 +131,29 @@ export interface UseColorsReturn {
   applyColorScheme: (scheme: Partial<ColorState>) => void;
   getModifiedSvg: () => string;
 }
+
+// Типы для экспорта
+export type ExportFormat = 'svg' | 'json';
+
+export interface ExportOptions {
+  format: ExportFormat;
+  width?: number;
+  height?: number;
+  quality?: number; // для PNG (0-1)
+  filename?: string;
+  includeColorScheme?: boolean; // для JSON экспорта
+}
+
+export interface ExportResult {
+  success: boolean;
+  filename?: string;
+  error?: string;
+  data?: string | Blob;
+}
+
+export interface ColorSchemeExport {
+  name: string;
+  colors: ColorState;
+  timestamp: string;
+  version: string;
+}

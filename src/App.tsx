@@ -1,13 +1,23 @@
 import { useState } from 'react';
 import { SVGLogoPreview } from './components/SVGLogo';
+import { ExportPanel } from './components/ExportPanel';
+import { ImportPanel } from './components/ImportPanel';
 import { COLOR_SCHEMES, useColorSchemes } from './hooks/useColors';
+import { useColors } from './hooks/useColors';
+import { SVG_LOGO_CONTENT } from './constants/svgContent';
+import { DEFAULT_COLORS } from './utils/colorUtils';
 import type { ColorState } from './types/colors';
 import './App.css';
 import './styles/SVGLogo.css';
+import './styles/ExportPanel.css';
+import './styles/ImportPanel.css';
 
 function App() {
   const [currentColors, setCurrentColors] = useState<Partial<ColorState>>({});
   const { currentScheme, applyScheme, getSchemeNames } = useColorSchemes();
+
+  // Используем хук для получения модифицированного SVG
+  const { getModifiedSvg } = useColors(currentColors, SVG_LOGO_CONTENT);
 
   const handleColorChange = (colors: ColorState) => {
     setCurrentColors(colors);
@@ -23,6 +33,10 @@ function App() {
   const handleSchemeChange = (schemeName: keyof typeof COLOR_SCHEMES) => {
     const scheme = applyScheme(schemeName);
     setCurrentColors(scheme);
+  };
+
+  const handleImport = (colors: ColorState) => {
+    setCurrentColors(colors);
   };
 
   return (
@@ -110,6 +124,17 @@ function App() {
               />
             </div>
           </div>
+        </div>
+
+        <div className="export-section">
+          <ExportPanel
+            svgContent={getModifiedSvg()}
+            colors={{ ...DEFAULT_COLORS, ...currentColors }}
+          />
+        </div>
+
+        <div className="import-section">
+          <ImportPanel onImport={handleImport} />
         </div>
       </main>
     </div>
