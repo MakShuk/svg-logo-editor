@@ -83,7 +83,7 @@ export const exportColorScheme = async (
  */
 export const exportLogo = async (
   svgContent: string,
-  svgElement: HTMLElement,
+  _svgElement: HTMLElement,
   colors: ColorState,
   options: ExportOptions
 ): Promise<ExportResult> => {
