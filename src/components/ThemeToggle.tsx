@@ -5,15 +5,11 @@ export const ThemeToggle = () => {
   const { theme, currentTheme, toggleTheme } = useTheme();
 
   const getIcon = () => {
-    if (theme === 'light') return '☀️';
-    if (theme === 'dark') return '🌙';
-    return '🔄'; // auto
+    return theme === 'light' ? '☀️' : '🌙';
   };
 
   const getLabel = () => {
-    if (theme === 'light') return 'Светлая тема';
-    if (theme === 'dark') return 'Темная тема';
-    return 'Автоматическая тема';
+    return theme === 'light' ? 'Светлая тема' : 'Темная тема';
   };
 
   return (
