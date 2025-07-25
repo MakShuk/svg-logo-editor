@@ -205,28 +205,6 @@ export const COLOR_SCHEMES = {
   },
 
   // Градиентные темы
-  oceanGradient: {
-    primary: '#667eea',
-    secondary: '#764ba2',
-    accent: '#5a67d8',
-    neutral: '#f7fafc',
-    special: '#764ba2',
-    gradientStart: '#667eea',
-    gradientEnd: '#764ba2',
-    backgroundColor: '#f0f4f8',
-  },
-
-  sunsetGradient: {
-    primary: '#ff7e5f',
-    secondary: '#feb47b',
-    accent: '#ff6b35',
-    neutral: '#fff8f3',
-    special: '#feb47b',
-    gradientStart: '#ff7e5f',
-    gradientEnd: '#feb47b',
-    backgroundColor: '#fff5f0',
-  },
-
   forestGradient: {
     primary: '#11998e',
     secondary: '#38ef7d',
@@ -271,16 +249,228 @@ export const COLOR_SCHEMES = {
     backgroundColor: '#f1f8ff',
   },
 
-  goldGradient: {
-    primary: '#f7971e',
-    secondary: '#ffd200',
-    accent: '#ff6348',
-    neutral: '#fffbf0',
-    special: '#ffd200',
-    gradientStart: '#f7971e',
-    gradientEnd: '#ffd200',
-    backgroundColor: '#fffcf0',
+  // Новые современные темы
+
+  spring: {
+    primary: '#98fb98',
+    secondary: '#ffb6c1',
+    accent: '#90ee90',
+    neutral: '#f0fff0',
+    special: '#ffb6c1',
+    gradientStart: '#98fb98',
+    gradientEnd: '#ffb6c1',
+    backgroundColor: '#f5fffa',
   },
+
+  summer: {
+    primary: '#ffd700',
+    secondary: '#ff6347',
+    accent: '#ffa500',
+    neutral: '#fffacd',
+    special: '#ff6347',
+    gradientStart: '#ffd700',
+    gradientEnd: '#ff6347',
+    backgroundColor: '#fffff0',
+  },
+
+  midnight: {
+    primary: '#191970',
+    secondary: '#4169e1',
+    accent: '#6495ed',
+    neutral: '#f8f8ff',
+    special: '#4169e1',
+    gradientStart: '#191970',
+    gradientEnd: '#4169e1',
+    backgroundColor: '#f0f0f0',
+  },
+
+  royal: {
+    primary: '#4b0082',
+    secondary: '#daa520',
+    accent: '#9370db',
+    neutral: '#f5f5f5',
+    special: '#daa520',
+    gradientStart: '#4b0082',
+    gradientEnd: '#9370db',
+    backgroundColor: '#faf0e6',
+  },
+
+  tropical: {
+    primary: '#ff4500',
+    secondary: '#32cd32',
+    accent: '#ff1493',
+    neutral: '#f0ffff',
+    special: '#32cd32',
+    gradientStart: '#ff4500',
+    gradientEnd: '#ff1493',
+    backgroundColor: '#f0fff0',
+  },
+  arctic: {
+    primary: '#b0c4de',
+    secondary: '#87cefa',
+    accent: '#4682b4',
+    neutral: '#f0f8ff',
+    special: '#87cefa',
+    gradientStart: '#b0c4de',
+    gradientEnd: '#87cefa',
+    backgroundColor: '#f8f8ff',
+  },
+
+  volcano: {
+    primary: '#dc143c',
+    secondary: '#ff4500',
+    accent: '#b22222',
+    neutral: '#ffe4e1',
+    special: '#ff4500',
+    gradientStart: '#dc143c',
+    gradientEnd: '#ff4500',
+    backgroundColor: '#fff0f5',
+  },
+
+  // Драгоценные камни
+  emerald: {
+    primary: '#50c878',
+    secondary: '#00ff7f',
+    accent: '#3cb371',
+    neutral: '#f0fff0',
+    special: '#00ff7f',
+    gradientStart: '#50c878',
+    gradientEnd: '#00ff7f',
+    backgroundColor: '#f5fffa',
+  },
+
+  ruby: {
+    primary: '#e0115f',
+    secondary: '#ff69b4',
+    accent: '#dc143c',
+    neutral: '#fff0f5',
+    special: '#ff69b4',
+    gradientStart: '#e0115f',
+    gradientEnd: '#ff69b4',
+    backgroundColor: '#ffe4e1',
+  },
+
+  // Уникальные градиентные темы
+
+  deepSea: {
+    primary: '#006994',
+    secondary: '#4682b4',
+    accent: '#5f9ea0',
+    neutral: '#f0f8ff',
+    special: '#4682b4',
+    gradientStart: '#006994',
+    gradientEnd: '#4682b4',
+    backgroundColor: '#f0f8ff',
+  },
+
+  goldRush: {
+    primary: '#ffd700',
+    secondary: '#ffb347',
+    accent: '#daa520',
+    neutral: '#fffacd',
+    special: '#ffb347',
+    gradientStart: '#ffd700',
+    gradientEnd: '#ffb347',
+    backgroundColor: '#fffff0',
+  },
+
+  mysticForest: {
+    primary: '#228b22',
+    secondary: '#32cd32',
+    accent: '#006400',
+    neutral: '#f0fff0',
+    special: '#32cd32',
+    gradientStart: '#228b22',
+    gradientEnd: '#32cd32',
+    backgroundColor: '#f5fffa',
+  },
+
+  cosmicDust: {
+    primary: '#663399',
+    secondary: '#9966cc',
+    accent: '#8b008b',
+    neutral: '#f8f8ff',
+    special: '#9966cc',
+    gradientStart: '#663399',
+    gradientEnd: '#9966cc',
+    backgroundColor: '#f5f5f5',
+  },
+  // Экзотические темы
+  neonCyan: {
+    primary: '#00ffff',
+    secondary: '#40e0d0',
+    accent: '#00ced1',
+    neutral: '#f0ffff',
+    special: '#40e0d0',
+    gradientStart: '#00ffff',
+    gradientEnd: '#40e0d0',
+    backgroundColor: '#f0fffe',
+  },
+
+  electricBlue: {
+    primary: '#7df9ff',
+    secondary: '#00bfff',
+    accent: '#1e90ff',
+    neutral: '#f0f8ff',
+    special: '#00bfff',
+    gradientStart: '#7df9ff',
+    gradientEnd: '#00bfff',
+    backgroundColor: '#f8fcff',
+  },
+} as const;
+
+/**
+ * Русские названия цветовых схем
+ */
+export const COLOR_SCHEME_NAMES: Record<keyof typeof COLOR_SCHEMES, string> = {
+  default: 'По умолчанию',
+  corporate: 'Корпоративная',
+  warm: 'Теплая',
+  cool: 'Холодная',
+  nature: 'Природная',
+  sunset: 'Закат',
+  monochrome: 'Монохром',
+  oceanGradient: 'Океанский градиент',
+  sunsetGradient: 'Закатный градиент',
+  forestGradient: 'Лесной градиент',
+  purpleGradient: 'Фиолетовый градиент',
+  fireGradient: 'Огненный градиент',
+  skyGradient: 'Небесный градиент',
+  goldGradient: 'Золотой градиент',
+  cyberpunk: 'Киберпанк',
+  vintage: 'Винтаж',
+  neon: 'Неон',
+  pastel: 'Пастель',
+  autumn: 'Осень',
+  winter: 'Зима',
+  spring: 'Весна',
+  summer: 'Лето',
+  midnight: 'Полночь',
+  royal: 'Королевская',
+  tropical: 'Тропики',
+  desert: 'Пустыня',
+  arctic: 'Арктика',
+  volcano: 'Вулкан',
+  galaxy: 'Галактика',
+  emerald: 'Изумруд',
+  ruby: 'Рубин',
+  sapphire: 'Сапфир',
+  bronze: 'Бронза',
+  platinum: 'Платина',
+  purpleHaze: 'Фиолетовый туман',
+  fireStorm: 'Огненная буря',
+  deepSea: 'Глубокое море',
+  goldRush: 'Золотая лихорадка',
+  mysticForest: 'Мистический лес',
+  cosmicDust: 'Космическая пыль',
+  minimalist: 'Минимализм',
+  softPink: 'Нежно-розовая',
+  mintFresh: 'Свежая мята',
+  lavender: 'Лаванда',
+  neonCyan: 'Неоновый циан',
+  electricBlue: 'Электрический синий',
+  hotMagenta: 'Горячая магента',
+  limeGreen: 'Лаймовый зеленый',
 } as const;
 
 /**
@@ -303,11 +493,20 @@ export const useColorSchemes = () => {
     return COLOR_SCHEMES[currentScheme];
   }, [currentScheme]);
 
+  const getSchemeName = useCallback(
+    (schemeName: keyof typeof COLOR_SCHEMES) => {
+      return COLOR_SCHEME_NAMES[schemeName];
+    },
+    []
+  );
+
   return {
     currentScheme,
     applyScheme,
     getSchemeNames,
     getCurrentScheme,
+    getSchemeName,
     schemes: COLOR_SCHEMES,
+    schemeNames: COLOR_SCHEME_NAMES,
   };
 };

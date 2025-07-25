@@ -19,7 +19,8 @@ import './styles/ImportPanel.css';
 
 function App() {
   const [currentColors, setCurrentColors] = useState<Partial<ColorState>>({});
-  const { currentScheme, applyScheme, getSchemeNames } = useColorSchemes();
+  const { currentScheme, applyScheme, getSchemeNames, getSchemeName } =
+    useColorSchemes();
 
   const { toasts, removeToast, showSuccess, showInfo } = useToast();
 
@@ -36,7 +37,10 @@ function App() {
   const handleSchemeChange = (schemeName: keyof typeof COLOR_SCHEMES) => {
     const scheme = applyScheme(schemeName);
     setCurrentColors(scheme);
-    showInfo('Цветовая схема изменена', `Применена схема "${schemeName}"`);
+    showInfo(
+      'Цветовая схема изменена',
+      `Применена схема "${getSchemeName(schemeName)}"`
+    );
   };
 
   const handleImport = (colors: ColorState) => {
@@ -84,35 +88,7 @@ function App() {
                   onClick={() => handleSchemeChange(schemeName)}
                   className={`scheme-button ${currentScheme === schemeName ? 'active' : ''}`}
                 >
-                  {schemeName === 'default'
-                    ? 'По умолчанию'
-                    : schemeName === 'corporate'
-                      ? 'Корпоративная'
-                      : schemeName === 'warm'
-                        ? 'Теплая'
-                        : schemeName === 'cool'
-                          ? 'Холодная'
-                          : schemeName === 'nature'
-                            ? 'Природная'
-                            : schemeName === 'sunset'
-                              ? 'Закат'
-                              : schemeName === 'monochrome'
-                                ? 'Монохром'
-                                : schemeName === 'oceanGradient'
-                                  ? 'Океанский градиент'
-                                  : schemeName === 'sunsetGradient'
-                                    ? 'Закатный градиент'
-                                    : schemeName === 'forestGradient'
-                                      ? 'Лесной градиент'
-                                      : schemeName === 'purpleGradient'
-                                        ? 'Фиолетовый градиент'
-                                        : schemeName === 'fireGradient'
-                                          ? 'Огненный градиент'
-                                          : schemeName === 'skyGradient'
-                                            ? 'Небесный градиент'
-                                            : schemeName === 'goldGradient'
-                                              ? 'Золотой градиент'
-                                              : schemeName}
+                  {getSchemeName(schemeName)}
                 </button>
               ))}
             </div>
